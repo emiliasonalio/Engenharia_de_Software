@@ -4,53 +4,54 @@
 int main(){
 
     char combustivel[1];
-    float litros;
-    float total;
+    double litros = 0;
+    double total = 0;
+    double valores[5] = {0.97, 0.96, 0.95, 0.94, 0.93};
+    double valorCombus[3] = {6.3, 3.3, 2.9};
 
     printf("Digite quantos litros foram colocados:\n");
-    scanf("%f", &litros);
+    scanf("%lf", &litros);
     
-    printf("Digite o tipo de combustrivel:\na - Alcool\ng - Gasolina\nd - Diesel\n");
+    printf("Digite o tipo de combustivel:\na - Alcool\ng - Gasolina\nd - Diesel\n");
     scanf("%s", &combustivel[1]);
     
+    /*for(int i = 0; i < 5; i++){
+        printf("[%.2lf, %d]\n", valores[i], i);
+        printf("[%.2lf, %d]\n", valorCombus[i], i);
+    }*/
 
     switch (combustivel[1]){
         case 'a': 
-            if (litros <= 20){
-                total = 1.03 * litros* 3.3;
-                printf("o valor total eh %.2f", total);
+            if (litros <= 20.0){
+                total = valores[1] * litros * valorCombus[2];
             }
-            else if(litros > 20){
-                total = 1.05 * litros * 3.3;
-                printf("o valor total eh %.2f", total);
+            else if(litros > 20.0){
+                total = valores[2] * litros * valorCombus[1];
             }
             break;
         
         case 'g':
-            if(litros <= 20){
-                total = 1.04 * litros * 2.9;
-                printf("o valor total eh %.2f", total);
+            if(litros <= 20.0){
+                total = valores[2] * litros * valorCombus[3];
             }
-            else if(litros > 20){
-                total = 1.06 * litros * 2.9;
-                printf("o valor total e %.2f", total);
+            else if(litros > 20.0){
+                total = valores[5] * litros * valorCombus[3];
             }
             break;
 
         case 'd':
-            if(litros <= 20){
-                total = 1.05 * litros * 6.3;
-                printf("o valor total e %.2f", total);
+            if(litros <= 20.0){
+                total = valores[3] * litros * valorCombus[1];
             }
-            else if(litros > 20){
-                total = 1.07 * litros * 6.3;
-                printf("o valor total e %.2f", total);
+            else if(litros > 20.0){
+                total = valores[5] * litros * valorCombus[1];
             }
             break;
 
         default:
             printf("Comando nao identificado");
     }
+    printf("O valor total e %.2lf", total);
 
     return 0;
 }
