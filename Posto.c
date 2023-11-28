@@ -3,53 +3,53 @@
 
 int main(){
 
-    int combustivel;
+    char combustivel[1];
     float litros;
     float total;
 
     printf("Digite quantos litros foram colocados:\n");
-    scanf("&lf", &litros);
+    scanf("%f", &litros);
     
-    printf("Digite o tipo de combustrivel:\n1 - Alcool\n2 - Gasolina\n3 - Diesel\n");
-    scanf("%d", &combustivel);
+    printf("Digite o tipo de combustrivel:\na - Alcool\ng - Gasolina\nd - Diesel\n");
+    scanf("%s", &combustivel[1]);
     
 
-    switch (combustivel){
-        case 1: 
+    switch (combustivel[1]){
+        case 'a': 
             if (litros <= 20){
-                total = 1,03 * litros* 3.3;
+                total = 1.03 * litros* 3.3;
                 printf("o valor total eh %.2f", total);
             }
             else if(litros > 20){
-                total = 1,05 * litros * 3.3;
+                total = 1.05 * litros * 3.3;
                 printf("o valor total eh %.2f", total);
             }
             break;
         
-        case 2:
+        case 'g':
             if(litros <= 20){
-                total = 1,04 * litros * 2.9;
+                total = 1.04 * litros * 2.9;
                 printf("o valor total eh %.2f", total);
             }
             else if(litros > 20){
-                total = 1,06 * litros * 2.9;
+                total = 1.06 * litros * 2.9;
                 printf("o valor total e %.2f", total);
             }
             break;
 
-        case 3:
+        case 'd':
             if(litros <= 20){
-                total = 1,05 * litros * 6.3;
+                total = 1.05 * litros * 6.3;
                 printf("o valor total e %.2f", total);
             }
             else if(litros > 20){
-                total = 1,07 * litros * 6.3;
+                total = 1.07 * litros * 6.3;
                 printf("o valor total e %.2f", total);
             }
             break;
 
-        //default:
-          //  printf("Comando nao identificado");
+        default:
+            printf("Comando nao identificado");
     }
 
     return 0;
